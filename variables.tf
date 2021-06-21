@@ -87,6 +87,12 @@ variable "object_expiration_days" {
   default     = 0
 }
 
+variable "prevent_s3_destroy" {
+  description = "Enable this option so that terraform destroy command will not be able to destroy the S3 buckets"
+  type        = "bool"
+  default     = true
+}
+
 variable "sse_algorithm" {
   description = "The server-side encryption algorithm to use. Valid values are AES256, aws:kms, and none"
   type        = "string"

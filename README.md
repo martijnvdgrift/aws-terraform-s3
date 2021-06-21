@@ -32,6 +32,10 @@ module "s3" {
 
 Full working references are available at [examples](examples)
 
+## Requirements
+
+No requirements.
+
 ## Providers
 
 | Name | Version |
@@ -41,7 +45,7 @@ Full working references are available at [examples](examples)
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | allowed\_headers | Specifies which headers are allowed. | `list` | `[]` | no |
 | allowed\_methods | (Required) Specifies which methods are allowed. Can be GET, PUT, POST, DELETE or HEAD. | `list` | `[]` | no |
 | allowed\_origins | (Required) Specifies which origins are allowed. | `list` | `[]` | no |
@@ -62,6 +66,7 @@ Full working references are available at [examples](examples)
 | noncurrent\_version\_transition\_glacier\_days | Indicates after how many days we are moving previous versions to Glacier.  Should be 0 to disable or at least 30 days longer than noncurrent\_version\_transition\_ia\_days. i.e. 0 to disable, 1-999 otherwise | `string` | `0` | no |
 | noncurrent\_version\_transition\_ia\_days | Indicates after how many days we are moving previous version objects to Standard-IA storage. Set to 0 to disable. | `string` | `0` | no |
 | object\_expiration\_days | Indicates after how many days we are deleting current version of objects. Set to 0 to disable or at least 365 days longer than TransitionInDaysGlacier. i.e. 0 to disable, otherwise 1-999 | `string` | `0` | no |
+| prevent\_s3\_destroy | Enable this option so that terraform destroy command will not be able to destroy the S3 buckets | `bool` | `true` | no |
 | rax\_mpu\_cleanup\_enabled | Enable Rackspace default values for cleanup of Multipart Uploads. | `string` | `true` | no |
 | sse\_algorithm | The server-side encryption algorithm to use. Valid values are AES256, aws:kms, and none | `string` | `"AES256"` | no |
 | transition\_to\_glacier\_days | Indicates after how many days we are moving current versions to Glacier.  Should be 0 to disable or at least 30 days longer than transition\_to\_ia\_days. i.e. 0 to disable, otherwise 1-999 | `string` | `0` | no |
